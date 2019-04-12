@@ -37,7 +37,7 @@ const bookSchema = new Schema ({
     },
 
     deleted: {
-        type: boolean,
+        type: Boolean,
         default: false
     }
 
