@@ -14,7 +14,6 @@ const checkAuth = async (req, res, next) => {
   const { data } = await axios.get(`${config.Services.USER_SERVICE}/users/auth`, { headers: { Authorization: headerToken } })
     .catch(e => res.status(400).json(response({}, `User service error: ${e}`, false)));
 
-  // const { data , message, success } = data;
   if (!data.success) {
     return res.status(401).send(response({}, data.message, false));
   }
