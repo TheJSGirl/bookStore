@@ -14,23 +14,22 @@ async function listOne(req, res) {
   res.status(200).json(response(book, '', true));
 }
 
-async function post(req, res) {
-  const {
-    user, name, author, edition,
-  } = req.body;
-  const data = {
-    name,
-    author,
-    edition,
-  };
+async function create(req, res) {
+  // Admins only can create books as of now
+  // if (!req.permission.admin) {
+  //   return res.status(401).send(response({}, 'Unauthorized request', false));
+  // }
 
-  const book = new Book(data);
-  book.save();
-  res.send();
+  const book = await Book
+    .create({ ...req.body, user: req.user._id });
+  if (!book) {
+    return res.status(400).send(response({}, 'Something went wrong', false));
+  }
+  res.status(200).send(response(book, '', true));
 }
 
 module.exports = {
   list,
   listOne,
-  post,
+  create,
 };

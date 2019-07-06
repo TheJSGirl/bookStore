@@ -14,13 +14,12 @@ module.exports = {
   },
   create: {
     post: {
-      user: Joi.string().required(),
       name: Joi.string().required(),
-      author: Joi.string().required(),
-      edition: Joi.string().required(),
-      image: Joi.string().required(),
-      category: Joi.string().required(),
-      price: Joi.string().required(),
+      authors: Joi.array().items(Joi.string().required()),
+      edition: Joi.string(),
+      image: Joi.string(),
+      category: Joi.string(),
+      price: Joi.number().required(),
     },
   },
 };

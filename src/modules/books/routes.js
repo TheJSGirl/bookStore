@@ -5,9 +5,9 @@ const Validation = require('./validation');
 const checkAuth = require('./../../services/authentication');
 
 router.get('/', validate(Validation.list), controller.list);
-router.get('/:id', [validate(Validation.listOne), checkAuth], controller.listOne);
-router.post('/', controller.post);
-router.patch('/:id', controller.post);
-router.delete('/:id', controller.post);
+router.get('/:id', [checkAuth, validate(Validation.listOne)], controller.listOne);
+router.post('/', [checkAuth, validate(Validation.create)], controller.create);
+router.patch('/:id', controller.create);
+router.delete('/:id', controller.create);
 
 module.exports = router;
