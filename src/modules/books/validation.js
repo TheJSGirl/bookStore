@@ -12,4 +12,15 @@ module.exports = {
       limit: Joi.number().integer().min(0),
     },
   },
+  create: {
+    post: {
+      user: Joi.string().required(),
+      name: Joi.string().required(),
+      author: Joi.string().required(),
+      edition: Joi.string().required(),
+      image: Joi.string().required(),
+      category: Joi.string().required(),
+      price: Joi.string().required(),
+    },
+  },
 };
