@@ -1,24 +1,29 @@
 const Book = require('./models');
 
-async function get(req, res){
-    // eslint-disable-next-line no-console
-    console.log('book store')
+async function get(req, res) {
+  res.json({
+    user: req.user,
+    auth: req.authenticated,
+    permission: req.permission,
+  });
 }
 
 async function post(req, res) {
-    // eslint-disable-next-line no-unused-vars
-    const {user, name, author, edition } = req.body;
-    const data = {
-        name, 
-        author, 
-        edition
-    }
-    // check user in database if it exists only then create book
-  const book = new Book();
+  const {
+    user, name, author, edition,
+  } = req.body;
+  const data = {
+    name,
+    author,
+    edition,
+  };
+
+  const book = new Book(data);
   book.save();
+  res.send();
 }
 
 module.exports = {
-    get,
-    post
-}
+  get,
+  post,
+};
