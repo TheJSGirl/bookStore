@@ -7,6 +7,7 @@ const bookSchema = new Schema({
   user: {
     type: String,
     trim: true,
+    required: true,
   },
   name: {
     type: String,
@@ -22,7 +23,7 @@ const bookSchema = new Schema({
   image: {
     type: String,
   },
-  subject: {
+  category: {
     type: String,
   },
   price: {
