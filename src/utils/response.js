@@ -1,11 +1,11 @@
 function response(data, message, success = false) {
-    return {
-        data: data || [],
-        message: message || '',
-        success
-    }
+  return {
+    data: data || [],
+    message: message || '',
+    success,
+  };
 }
 
 module.exports = {
-    response
+  response,
 };

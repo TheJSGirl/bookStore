@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const axios = require('axios');
 const config = require('./../config');
 const { response } = require('./../utils');
