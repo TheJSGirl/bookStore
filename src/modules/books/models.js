@@ -8,7 +8,7 @@ const bookSchema = new Schema({
     trim: true,
     required: true,
   },
-  name: {
+  title: {
     type: String,
     trim: true,
   },

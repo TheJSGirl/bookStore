@@ -14,7 +14,7 @@ module.exports = {
   },
   create: {
     post: {
-      name: Joi.string().required(),
+      title: Joi.string().required(),
       authors: Joi.array().items(Joi.string().required()),
       edition: Joi.string(),
       image: Joi.string(),
