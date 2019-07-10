@@ -6,7 +6,7 @@ const checkAuth = require('./../../services/authentication');
 
 router.get('/', validate(Validation.list), controller.list);
 router.get('/:id', [checkAuth, validate(Validation.listOne)], controller.listOne);
-router.post('/', [checkAuth, validate(Validation.create)], controller.create);
+router.post('/', controller.create);
 router.patch('/:id', controller.create);
 router.delete('/:id', controller.create);
 

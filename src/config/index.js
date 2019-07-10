@@ -27,7 +27,7 @@ const BasicConfiguration = {
   },
   MongoDBSettings: {
     url: `${DB_PROTOCOL}://${DB_USER}:${encodeURIComponent(DB_PASSWORD)}@${DB_HOST}:${DB_PORT}/${DB_NAME}` || 'mongodb://localhost/bbd-auth-bak',
-    host: DB_HOST || 'mongodb://localhost/user-service',
+    host: DB_HOST || 'mongodb://localhost/books-user-service ',
   },
   Services: {
     USER_SERVICE,

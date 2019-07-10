@@ -19,9 +19,8 @@ async function create(req, res) {
   // if (!req.permission.admin) {
   //   return res.status(401).send(response({}, 'Unauthorized request', false));
   // }
-
   const book = await Book
-    .create({ ...req.body, user: req.user._id });
+    .create({ ...req.body });
   if (!book) {
     return res.status(400).send(response({}, 'Something went wrong', false));
   }
