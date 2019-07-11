@@ -22,4 +22,15 @@ module.exports = {
       price: Joi.number().required(),
     },
   },
+
+  edit: {
+    body: {
+      title: Joi.string(),
+      authors: Joi.array().items(Joi.string()),
+      edition: Joi.string(),
+      image: Joi.string(),
+      category: Joi.string(),
+      price: Joi.number(),
+    },
+  },
 };

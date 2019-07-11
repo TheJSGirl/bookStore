@@ -24,13 +24,22 @@ async function create(req, res) {
   if (!book) {
     return res.status(400).send(response({}, 'Something went wrong', false));
   }
-  res.status(200).send(response(book, '', true));
+  return res.status(200).send(response(book, '', true));
 }
 async function remove(req, res) {
   const { id } = req.params;
   const result = await Book.findByIdAndUpdate({ _id: id }, { deleted: true }, { new: true });
-  res.status(200).send(response(result, '', true));
+  return res.status(200).send(response(result, '', true));
+}
 
+async function edit(req, res) {
+  const { id } = req.params;
+  const book = await Book
+    .findOneAndUpdate({ _id: id }, { ...req.body }, { new: true });
+  if (!book) {
+    return res.status(400).send(response({}, 'Something went wrong', false));
+  }
+  res.status(200).send(response(book, 'Successfully Updated the book', true));
 }
 
 module.exports = {
@@ -38,4 +47,5 @@ module.exports = {
   listOne,
   create,
   remove,
+  edit,
 };
