@@ -26,9 +26,16 @@ async function create(req, res) {
   }
   res.status(200).send(response(book, '', true));
 }
+async function remove(req, res) {
+  const { id } = req.params;
+  const result = await Book.findByIdAndUpdate({ _id: id }, { deleted: true }, { new: true });
+  res.status(200).send(response(result, '', true));
+
+}
 
 module.exports = {
   list,
   listOne,
   create,
+  remove,
 };
