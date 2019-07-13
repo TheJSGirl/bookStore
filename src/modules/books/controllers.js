@@ -60,5 +60,5 @@ module.exports = {
   create,
   remove,
   edit,
-  listMyBooks
+  listMyBooks,
 };
