@@ -15,7 +15,7 @@ module.exports = {
   create: {
     body: {
       title: Joi.string().required(),
-      authors: Joi.array().items(Joi.string().required()),
+      author: Joi.string().required(),
       edition: Joi.string(),
       image: Joi.string(),
       category: Joi.string(),
@@ -25,7 +25,7 @@ module.exports = {
   edit: {
     body: {
       title: Joi.string(),
-      authors: Joi.array().items(Joi.string()),
+      author: Joi.string(),
       edition: Joi.string(),
       image: Joi.string(),
       category: Joi.string(),
