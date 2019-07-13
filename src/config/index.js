@@ -9,7 +9,7 @@ const {
   DB_HOST,
   DB_PORT,
   DB_NAME,
-  USER_SERVICE
+  USER_SERVICE,
 } = process.env;
 
 let credentials = '';
