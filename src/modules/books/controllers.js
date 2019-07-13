@@ -2,17 +2,19 @@ const Book = require('./models');
 const { response } = require('./../../utils');
 
 async function list(req, res) {
-  const limit = parseInt(req.query.limit, 10) || 10;
+  const limit = parseInt(req.query.limit, 10) || 100;
   const skip = parseInt(req.query.skip, 10) || 0;
   const books = await Book.find({ deleted: false }).skip(skip).limit(limit);
-  res.status(200).send(response(books, '', true));
+  const total = await Book.count();
+  res.status(200).send(response({ books, total }, '', true));
 }
 
 async function listMyBooks(req, res) {
-  const limit = parseInt(req.query.limit, 10) || 10;
+  const limit = parseInt(req.query.limit, 10) || 100;
   const skip = parseInt(req.query.skip, 10) || 0;
   const books = await Book.find({ deleted: false, user: req.user._id }).skip(skip).limit(limit);
-  res.status(200).send(response(books, '', true));
+  const total = await Book.count();
+  res.status(200).send(response({ books, total }, '', true));
 }
 
 async function listOne(req, res) {
