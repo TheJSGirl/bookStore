@@ -13,13 +13,23 @@ module.exports = {
     },
   },
   create: {
-    post: {
+    body: {
       title: Joi.string().required(),
       authors: Joi.array().items(Joi.string().required()),
       edition: Joi.string(),
       image: Joi.string(),
       category: Joi.string(),
       price: Joi.number().required(),
+    },
+  },
+  edit: {
+    body: {
+      title: Joi.string(),
+      authors: Joi.array().items(Joi.string()),
+      edition: Joi.string(),
+      image: Joi.string(),
+      category: Joi.string(),
+      price: Joi.number(),
     },
   },
 };
